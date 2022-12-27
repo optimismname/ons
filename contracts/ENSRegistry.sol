@@ -1,11 +1,11 @@
 pragma solidity ^0.7.0;
 
-import "./ENS.sol";
+import "./ONS.sol";
 
 /**
- * The ENS registry contract.
+ * The ONS registry contract.
  */
-contract ENSRegistry is ENS {
+contract ONSRegistry is ONS {
 
     struct Record {
         address owner;
@@ -24,7 +24,7 @@ contract ENSRegistry is ENS {
     }
 
     /**
-     * @dev Constructs a new ENS registrar.
+     * @dev Constructs a new ONS registrar.
      */
     constructor() public {
         records[0x0].owner = msg.sender;
@@ -100,7 +100,7 @@ contract ENSRegistry is ENS {
 
     /**
      * @dev Enable or disable approval for a third party ("operator") to manage
-     *  all of `msg.sender`'s ENS records. Emits the ApprovalForAll event.
+     *  all of `msg.sender`'s ONS records. Emits the ApprovalForAll event.
      * @param operator Address to add to the set of authorized operators.
      * @param approved True if the operator is approved, false to revoke approval.
      */
