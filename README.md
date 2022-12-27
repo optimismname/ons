@@ -1,6 +1,6 @@
 # ONS
 
-[![Build Status](https://travis-ci.org/onsdomains/ons.svg?branch=master)](https://travis-ci.org/onsdomains/ons)
+[![Build Status](https://travis-ci.org/optimismname/ons.svg?branch=master)](https://travis-ci.org/optimismname/ons)
 
 Implementations for registrars and local resolvers for the Optimism Name Service.
 
@@ -26,7 +26,7 @@ import {
   Registrar,
   ReverseRegistrar,
   TestRegistrar
-} from '@onsdomains/ons'
+} from '@optimismname/ons'
 ```
 
 ## ONSRegistry.sol
