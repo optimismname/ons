@@ -9,7 +9,7 @@ import "./ONS.sol";
 contract TestRegistrar {
     uint constant registrationPeriod = 4 weeks;
 
-    ONS public ens;
+    ONS public ons;
     bytes32 public rootNode;
     mapping (bytes32 => uint) public expiryTimes;
 
