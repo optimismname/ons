@@ -1,10 +1,10 @@
-# ENS
+# ONS
 
-[![Build Status](https://travis-ci.org/ensdomains/ens.svg?branch=master)](https://travis-ci.org/ensdomains/ens)
+[![Build Status](https://travis-ci.org/onsdomains/ons.svg?branch=master)](https://travis-ci.org/onsdomains/ons)
 
-Implementations for registrars and local resolvers for the Ethereum Name Service.
+Implementations for registrars and local resolvers for the Optimism Name Service.
 
-For documentation of the ENS system, see [docs.ens.domains](https://docs.ens.domains/).
+For documentation of the ONS system, see [docs.optimism.name](https://docs.optimism.name/).
 
 To run unit tests, clone this repository, and run:
 
@@ -19,29 +19,29 @@ This repo doubles as an npm package with the compiled JSON contracts
 import {
   Deed,
   DeedImplementation,
-  ENS,
-  ENSRegistry,
+  ONS,
+  ONSRegistry,
   FIFSRegistrar,
   Migrations,
   Registrar,
   ReverseRegistrar,
   TestRegistrar
-} from '@ensdomains/ens'
+} from '@onsdomains/ons'
 ```
 
-## ENSRegistry.sol
+## ONSRegistry.sol
 
-Implementation of the ENS Registry, the central contract used to look up resolvers and owners for domains.
+Implementation of the ONS Registry, the central contract used to look up resolvers and owners for domains.
 
 ## FIFSRegistrar.sol
 
 Implementation of a simple first-in-first-served registrar, which issues (sub-)domains to the first account to request them.
 
-# ENS Registry interface
+# ONS Registry interface
 
-The ENS registry is a single central contract that provides a mapping from domain names to owners and resolvers, as described in [EIP 137](https://github.com/ethereum/EIPs/issues/137).
+The ONS registry is a single central contract that provides a mapping from domain names to owners and resolvers, as described in [EIP 137](https://github.com/ethereum/EIPs/issues/137).
 
-The ENS operates on 'nodes' instead of human-readable names; a human readable name is converted to a node using the namehash algorithm, which is as follows:
+The ONS operates on 'nodes' instead of human-readable names; a human readable name is converted to a node using the namehash algorithm, which is as follows:
 
     def namehash(name):
       if name == '':
@@ -74,17 +74,17 @@ Sets the resolver address for the specified node.
 
 # Resolvers
 
-Resolvers can be found in the resolver specific [repository](https://github.com/ensdomains/resolvers).
+Resolvers can be found in the resolver specific [repository](https://github.com/optimismname/resolvers).
 
 # Generating LLL ABI and binary data
 
-ENS.lll.bin was generated with the following command, using the lllc packaged with Solidity 0.4.4:
+ONS.lll.bin was generated with the following command, using the lllc packaged with Solidity 0.4.4:
 
-    $ lllc ENS.lll > ENS.lll.bin
+    $ lllc ONS.lll > ONS.lll.bin
 
 The files in the abi directory were generated with the following command:
 
-    $ solc --abi -o abi AbstractENS.sol FIFSRegistrar.sol HashRegistrarSimplified.sol
+    $ solc --abi -o abi AbstractONS.sol FIFSRegistrar.sol HashRegistrarSimplified.sol
 
 # Getting started
 
@@ -96,7 +96,7 @@ Launch the RPC client, for example TestRPC:
 
     $ testrpc
 
-Deploy `ENS` and `FIFSRegistrar` to the private network, the deployment process is defined at [here](migrations/2_deploy_contracts.js):
+Deploy `ONS` and `FIFSRegistrar` to the private network, the deployment process is defined at [here](migrations/2_deploy_contracts.js):
 
     $ truffle migrate --network dev.fifs
 
