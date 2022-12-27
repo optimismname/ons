@@ -16,7 +16,7 @@ function namehash(name) {
     return node.toString();
 }
 
-var ensContract = web3.eth.contract([
+var ensContract = web3.op.contract([
   {
     "constant": true,
     "inputs": [
@@ -217,9 +217,9 @@ var ensContract = web3.eth.contract([
     "type": "event"
   }
 ]);
-var ens = ensContract.at('0x112234455c3a32fd11230c42e7bccd4a84e02010');
+var ons = onsContract.at('0x112234455c3a32fd11230c42e7bccd4a84e02010');
 
-var auctionRegistrarContract = web3.eth.contract([
+var auctionRegistrarContract = web3.op.contract([
   {
     "constant": false,
     "inputs": [
@@ -603,7 +603,7 @@ var auctionRegistrarContract = web3.eth.contract([
   {
     "inputs": [
       {
-        "name": "_ens",
+        "name": "_ons",
         "type": "address"
       },
       {
@@ -756,9 +756,9 @@ var auctionRegistrarContract = web3.eth.contract([
     "type": "event"
   }
 ]);
-var ethRegistrar = auctionRegistrarContract.at(ens.owner(namehash('eth')));
+var ethRegistrar = auctionRegistrarContract.at(ons.owner(namehash('op')));
 
-var deedContract = web3.eth.contract([
+var deedContract = web3.op.contract([
   {
     "constant": true,
     "inputs": [],
@@ -918,11 +918,11 @@ var deedContract = web3.eth.contract([
   }
 ]);
 
-var fifsRegistrarContract = web3.eth.contract([
+var fifsRegistrarContract = web3.op.contract([
   {
     "constant": true,
     "inputs": [],
-    "name": "ens",
+    "name": "ons",
     "outputs": [
       {
         "name": "",
@@ -983,7 +983,7 @@ var fifsRegistrarContract = web3.eth.contract([
   {
     "inputs": [
       {
-        "name": "ensAddr",
+        "name": "onsAddr",
         "type": "address"
       },
       {
@@ -994,9 +994,9 @@ var fifsRegistrarContract = web3.eth.contract([
     "type": "constructor"
   }
 ]);
-var testRegistrar = fifsRegistrarContract.at(ens.owner(namehash('test')));
+var testRegistrar = fifsRegistrarContract.at(ons.owner(namehash('test')));
 
-var resolverContract = web3.eth.contract([
+var resolverContract = web3.op.contract([
   {
     "constant": true,
     "inputs": [
@@ -1314,7 +1314,7 @@ var resolverContract = web3.eth.contract([
 var publicResolver = resolverContract.at('0x4c641fb9bad9b60ef180c31f56051ce826d21a9a');
 
 
-var reverseRegistrarContract = web3.eth.contract([
+var reverseRegistrarContract = web3.op.contract([
   {
     "constant": false,
     "inputs": [
@@ -1336,7 +1336,7 @@ var reverseRegistrarContract = web3.eth.contract([
   {
     "constant": true,
     "inputs": [],
-    "name": "ens",
+    "name": "ons",
     "outputs": [
       {
         "name": "",
@@ -1380,7 +1380,7 @@ var reverseRegistrarContract = web3.eth.contract([
   {
     "inputs": [
       {
-        "name": "ensAddr",
+        "name": "onsAddr",
         "type": "address"
       },
       {
@@ -1392,11 +1392,11 @@ var reverseRegistrarContract = web3.eth.contract([
     "type": "constructor"
   }
 ]);
-var reverseRegistrar = reverseRegistrarContract.at(ens.owner(namehash('addr.reverse')));
+var reverseRegistrar = reverseRegistrarContract.at(ons.owner(namehash('addr.reverse')));
 
 function getAddr(name) {
   var node = namehash(name)
-  var resolverAddress = ens.resolver(node);
+  var resolverAddress = ons.resolver(node);
   if (resolverAddress === '0x0000000000000000000000000000000000000000') {
     return resolverAddress;
   }
@@ -1405,7 +1405,7 @@ function getAddr(name) {
 
 function getContent(name) {
   var node = namehash(name)
-  var resolverAddress = ens.resolver(node);
+  var resolverAddress = ons.resolver(node);
   if (resolverAddress === '0x0000000000000000000000000000000000000000') {
     return "0x0000000000000000000000000000000000000000000000000000000000000000";
   }
