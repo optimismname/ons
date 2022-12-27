@@ -1,19 +1,19 @@
 pragma solidity ^0.7.0;
 
-import "./ENS.sol";
-import "./ENSRegistry.sol";
+import "./ONS.sol";
+import "./ONSRegistry.sol";
 
 /**
- * The ENS registry contract.
+ * The ONS registry contract.
  */
-contract ENSRegistryWithFallback is ENSRegistry {
+contract ONSRegistryWithFallback is ONSRegistry {
 
-    ENS public old;
+    ONS public old;
 
     /**
-     * @dev Constructs a new ENS registrar.
+     * @dev Constructs a new ONS registrar.
      */
-    constructor(ENS _old) public ENSRegistry() {
+    constructor(ONS _old) public ONSRegistry() {
         old = _old;
     }
 
